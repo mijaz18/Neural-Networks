@@ -1,6 +1,12 @@
 package learn.lc.examples;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 import java.util.List;
 
 import learn.lc.core.DecayingLearningRateSchedule;
@@ -42,17 +48,14 @@ public class PerceptronClassifierTest {
 	 * print its accuracy after each training step.
 	 */
 	public static void main(String[] argv) throws IOException {
-//		if (argv.length < 3) {
-//			System.out.println("usage: java PerceptronClassifierTest data-filename nsteps alpha");
-//			System.out.println("       specify alpha=0 to use decaying learning rate schedule");
-//			System.exit(-1);
-//		}
-		//String filename = argv[0];
-		String filename = "src/learn/lc/examples/earthquake-clean.data.txt";
-		//int nsteps = Integer.parseInt(argv[1]);
-		int nsteps = 10000;
-		//double alpha = Double.parseDouble(argv[2]);
-		double alpha = 0.95;
+		if (argv.length < 3) {
+			System.out.println("usage: java PerceptronClassifierTest data-filename nsteps alpha");
+			System.out.println("       specify alpha=0 to use decaying learning rate schedule");
+			System.exit(-1);
+		}
+		String filename = argv[0];
+		int nsteps = Integer.parseInt(argv[1]);
+		double alpha = Double.parseDouble(argv[2]);
 		test(filename, nsteps, alpha);
 	}
 

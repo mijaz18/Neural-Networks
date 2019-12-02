@@ -26,6 +26,8 @@ public class ClassifierDisplay extends JFrame {
 		int curr_y= (int) ((1.0 - y) * 750);
 		//System.out.println("XXX "+ curr_x+ "YYYY "+ curr_y);
 		canvas.getGraphics().drawLine(x1, y1, curr_x, curr_y);
+		canvas.getGraphics().drawString(String.valueOf(x1), (int)x, 20);
+		canvas.getGraphics().drawString(String.valueOf(y1), 10, (int)y);
 		
 		x1=curr_x;
 		y1=curr_y;
